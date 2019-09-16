@@ -1,0 +1,31 @@
+{
+    "bosses": [
+        {
+            "id": "cleric-beast",
+            "name": "Cleric Beast",
+            "location": "Central Yharnam",
+            "drops": "Sword Hunter Badge",
+            "weakness": "Fire and Serration",
+            "lore": "",
+            "avatar": "https://bloodborne.wiki.fextralife.com/file/Bloodborne/Cleric_Beast_Profile_Extra.jpg?v=1482926385493"
+        },
+        {
+            "id": "father-gascoine",
+            "name": "Father Gascoine",
+            "location": "Central Yharnam",
+            "drops": "Odeon Tomb Key",
+            "weakness": "Serration",
+            "lore": "",
+            "avatar": "https://vignette.wikia.nocookie.net/bloodborne/images/6/64/Image_bloodborne-Priest_Gascoigne.jpg/revision/latest?cb=20141206130644"
+        },
+        {
+            "id": "vicar-amelia",
+            "name": "Vicar Amelia",
+            "location": "Cathedral Ward",
+            "drops": "Gold Pedant",
+            "weakness": "Fire and Serration",
+            "lore": "",
+            "avatar": "https://bloodborne.wiki.fextralife.com/file/Bloodborne/Amelia_Roaring_Advance.jpg?v=1507914555949"
+        }
+    ]
+}

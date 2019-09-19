@@ -1,7 +1,16 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import Nav from './components/Nav';
+import Banner from './components/Banner';
 
-function App() { return (<h1>Hello World!</h1>) }
+function App() {
+    return (
+        <div>
+            <Nav />
+            <Banner />
+        </div>
+    )
+    }
 
 
 export default App;

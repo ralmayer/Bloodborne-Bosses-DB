@@ -12,6 +12,7 @@ const Banner = () =>
             <div id='scrollImg'><img src='https://thumbs.gfycat.com/ApprehensiveHorribleHorsemouse-size_restricted.gif'/></div>
         </div>
         <div id='circle'></div>
+        <div id='bannerTransition'></div>
     </div>
 
 

@@ -1,6 +1,8 @@
 #banner {
     height: 100vh;
-    width: auto;
+    width: 100%;
     background: url("../img/bb2.jpg") center center no-repeat;
     background-size: cover;
+    display: flex;
+    align-items: flex-start;
 }

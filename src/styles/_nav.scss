@@ -17,24 +17,36 @@
             height: 3px;
             background-color: white;
             margin: 5px;
+            cursor: pointer;
         }
     }
     #nav-links {
         display: none;
     }
-    ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
+    .nav-disabled {
+        display: none;
+    }
+    .nav-links-mobile {
+        position: absolute;
+        height: 30vh;
+        top: 15vh;
+        background-color: rgba(0,0,0, 0.6);
         display: flex;
-        justify-content: space-around;
-        width: 20%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
         li {
             padding: 20px;
+            background-color: black;
             a {
                 color: rgb(255, 255, 255);
                 text-decoration: none;
             }
+        li:hover {
+                background-color:rgba(0,0,0);
+                }
+
         }
     }
 }
@@ -44,9 +56,25 @@
     #nav {
         #nav-links {
             display: flex;
-    }
-        #burger {
-            display: none;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            width: 20%;
+            li {
+                padding: 20px;
+                a {
+                    color: rgb(255, 255, 255);
+                    text-decoration: none;
+                }
+                }
+            }
+            #burger {
+                display: none;
+            }
+            #nav-links-mobile {
+                display: none;
+            }
         }
     }
-}

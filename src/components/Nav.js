@@ -1,25 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
+import MobileLinks from './MobileLinks';
+import DesktopLinks from './DesktopLinks';
+import BurgerButton from './BurgerButton';
 
-const Nav = () => 
-<div id='nav'>
-    <div id='logo'>
-        Logo
-    </div>
-    <ul id='nav-links'>
-        <li><a href='#'>Home</a></li>
-        <li><a href='#'>Bosses</a></li>
-        <li><a href='#'>About</a></li>
-    </ul>
-    <ul id='nav-links-mobile'>
-        <li><a href='#'>Home</a></li>
-        <li><a href='#'>Bosses</a></li>
-        <li><a href='#'>About</a></li>
-    </ul>
-    <div id='burger'>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</div>
+const Nav = () => {
+    const [state, setState] = useState(false);
+
+    const toggleClass = () => {
+        setState(!state)
+        console.log(state)
+    }
+
+    return (
+        <div id='nav'>
+            <div id='logo'>
+                Logo
+            </div>
+            <DesktopLinks />
+            <MobileLinks status={state}/>
+            <BurgerButton toggleClass={toggleClass}/>
+        </div >
+    )
+
+}
 
 export default Nav

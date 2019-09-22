@@ -23,7 +23,10 @@
     #nav-links {
         display: none;
     }
-    #nav-links-mobile {
+    .nav-disabled {
+        display: none;
+    }
+    .nav-links-mobile {
         position: absolute;
         height: 30vh;
         top: 15vh;
@@ -33,21 +36,16 @@
         align-items: center;
         justify-content: space-evenly;
         width: 100%;
-        transform: translateY(-150%);
-        transition: 0.5 ease-in;
-    .nav-active {
-        transform: translateY(0)
-    }
-    li {
-        padding: 20px;
-        background-color: black;
-        a {
-            color: rgb(255, 255, 255);
-            text-decoration: none;
-        }
-    li:hover {
-            background-color:rgba(0,0,0);
-             }
+        li {
+            padding: 20px;
+            background-color: black;
+            a {
+                color: rgb(255, 255, 255);
+                text-decoration: none;
+            }
+        li:hover {
+                background-color:rgba(0,0,0);
+                }
 
         }
     }

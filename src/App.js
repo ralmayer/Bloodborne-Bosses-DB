@@ -5,18 +5,17 @@ import CTA from './components/CTA'
 import Footer from './components/Footer'
 
 function App() {
-    const [bosses, setBosses] = useState({})
+    const [bossesList, setBossesList] = useState(null)
 
     async function fetchData() {
         const res = await fetch('https://api.myjson.com/bins/6gv55')
-        res
-            .json()
-            .then(result => setBosses(result))
-            console.log(bosses)
+        const data = await res.json()
+        setBossesList(data)
+        
     }
 
     useEffect(() => {
-        fetchData()
+        fetchData()  
     }, [])
 
 
@@ -25,6 +24,7 @@ function App() {
             <Banner />
             <CTA />
             <Footer />
+            {bossesList !== null && console.log(bossesList.bosses[0])}
         </div>
     )
 

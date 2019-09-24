@@ -1,30 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import './App.scss';
-import Banner from './components/Banner'
-import CTA from './components/CTA'
-import Footer from './components/Footer'
+import Banner from './components/Banner';
+import BossesPreview from './components/Bosses Preview/BossesPreview';
+import Footer from './components/Footer';
 
 function App() {
     const [bossesList, setBossesList] = useState(null)
 
-    async function fetchData() {
-        const res = await fetch('https://api.myjson.com/bins/6gv55')
+
+    const fetchData = async () => {
+        const res = await fetch('https://api.myjson.com/bins/1ep6g1')
         const data = await res.json()
         setBossesList(data)
-        
     }
 
     useEffect(() => {
-        fetchData()  
+        fetchData()
     }, [])
-
 
     return (
         <div>
-            <Banner />
-            <CTA />
-            <Footer />
-            {bossesList !== null && console.log(bossesList.bosses[0])}
+            {bossesList ? 
+                    <Fragment>            
+                        <Banner />
+                        <BossesPreview bosses={bossesList} />
+                        <Footer />
+                        {console.log(bossesList)}</Fragment> 
+                        : null
+            }
         </div>
     )
 

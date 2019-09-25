@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
-const BossesPreviewCard = ({bosses}) => {
+const BossesPreviewCard = ({ bosses }) => {
 
     return (
         <div className='boss-preview-cards'>
-            <div className='boss-preview-avatar'>{bosses !== null && <img src={bosses.bosses[0].avatar} alt=''/>}</div>
-            <div className='boss-preview-text'></div>
-            <div className='boss-preview-text'></div>
-            <div className='boss-preview-avatar'></div>
+            {bosses.bosses.map((boss) => 
+                <Fragment>
+                    <div className='boss-preview-avatar'><img src={boss.avatar} alt={boss.id} /></div>
+                    <div className='boss-preview-text'>r</div>
+                </Fragment>
+            )}
         </div>
     )
 }

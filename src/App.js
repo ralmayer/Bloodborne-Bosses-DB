@@ -3,13 +3,13 @@ import './App.scss';
 import Banner from './components/Banner';
 import BossesPreview from './components/Bosses Preview/BossesPreview';
 import Footer from './components/Footer';
+import CTA from './components/CTA'
 
 function App() {
     const [bossesList, setBossesList] = useState(null)
 
-
     const fetchData = async () => {
-        const res = await fetch('https://api.myjson.com/bins/1ep6g1')
+        const res = await fetch('https://api.myjson.com/bins/13ityd')
         const data = await res.json()
         setBossesList(data)
     }
@@ -24,8 +24,9 @@ function App() {
                     <Fragment>            
                         <Banner />
                         <BossesPreview bosses={bossesList} />
+                        <CTA />
                         <Footer />
-                        {console.log(bossesList)}</Fragment> 
+                        </Fragment> 
                         : null
             }
         </div>

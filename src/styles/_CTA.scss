@@ -1,0 +1,30 @@
+.CTA {
+    height: 300px;
+    width: auto;
+    background: url("https://techraptor.net/wp-content/uploads/2017/11/Bloodborne-Checkpoint.jpg") center center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    #bossesPreviewMoreButton {
+        text-align: center;
+        justify-self: center;
+        width: 100%;
+        a {
+            text-decoration: none;
+            div {
+                width: 200px;
+                font-size: 25px;
+                color: rgb(255, 255, 255);
+                text-decoration: none;
+                padding: 30px;
+                margin: 80px; 
+                border: solid 3px white; 
+                transition: 1s;         
+            }
+            div:hover {
+                background: gray;
+            }
+        }
+    }
+}

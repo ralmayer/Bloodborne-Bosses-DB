@@ -1,5 +1,5 @@
 import React from 'react'
-import MoreButton from './Bosses Preview/MoreButton'
+import MoreButton from '../Bosses Preview/MoreButton'
 
 const CTA = () => 
     <div className='CTA'>

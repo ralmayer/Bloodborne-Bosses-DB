@@ -1,9 +1,9 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
-import Banner from './components/Banner';
-import BossesPreview from './components/Bosses Preview/BossesPreview';
-import Footer from './components/Footer';
-import CTA from './components/CTA'
+import Home from './components/Home/Home';
+import BossList from './components/Full Boss List/BossList';
+import About from './components/About';
 
 function App() {
     const [bossesList, setBossesList] = useState(null)
@@ -20,14 +20,19 @@ function App() {
 
     return (
         <div>
-            {bossesList ? 
-                    <Fragment>            
-                        <Banner />
+            {bossesList ?
+                <BrowserRouter>
+                    <Fragment> 
+                        <Route path="/" component={Home} exact />      
+                        <Route path="/about" component={About} />
+                        <Route path="/bosses" component={BossList} />       
+                        {/* <Banner />
                         <BossesPreview bosses={bossesList} />
                         <CTA />
-                        <Footer />
-                        </Fragment> 
-                        : null
+                        <Footer /> */}
+                    </Fragment> 
+                </BrowserRouter>
+                : null
             }
         </div>
     )

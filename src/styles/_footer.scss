@@ -8,16 +8,29 @@
     background: black;
     flex-wrap: wrap;
         img {
-            width: 30%;
+            width: 40%;
         }
         a {
             display: flex;
             justify-content: center;
             width: 100%;
             img {
-                width: 4%;
+                width: 8%;
                 justify-self: center;
                 margin-bottom: 50px;
             }
         }
+}
+
+@media screen and (min-width: 780px) {
+    #footer {
+            img {
+                width: 30%;
+            }
+            a {
+                img {
+                    width: 4%;
+                }
+            }
+    }
 }

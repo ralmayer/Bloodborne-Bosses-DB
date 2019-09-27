@@ -1,10 +1,11 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'; 
 
 const DesktopLinks = () => 
     <ul id='nav-links'>
-        <li><a href='https://www.youtube.com/watch?v=G203e1HhixY'>Home</a></li>
-        <li><a href='https://www.youtube.com/watch?v=G203e1HhixY'>Bosses</a></li>
-        <li><a href='https://www.youtube.com/watch?v=G203e1HhixY'>About</a></li>
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/bosses'>Bosses</NavLink></li>
+        <li><NavLink to='/about'>About</NavLink></li>
     </ul>
 
 

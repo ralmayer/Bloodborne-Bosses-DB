@@ -1,9 +1,9 @@
 import React from 'react'
 import BossesPreviewCard from './BossesPreviewCard'
 
-const BossesPreview = ({bosses}) => 
+const BossesPreview = () => 
     <div className='bosses-preview'>
-        <BossesPreviewCard bosses={bosses}/>
+        <BossesPreviewCard/>
     </div>
 
 

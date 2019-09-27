@@ -1,29 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Carrois+Gothic+SC&display=swap');
+
 .CTA {
     height: 300px;
-    width: auto;
+    width: 100%;
     background: url("https://techraptor.net/wp-content/uploads/2017/11/Bloodborne-Checkpoint.jpg") center center no-repeat;
     background-size: cover;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     #bossesPreviewMoreButton {
-        text-align: center;
-        justify-self: center;
-        width: 100%;
         a {
             text-decoration: none;
-            div {
-                width: 200px;
+            div {   
+                background: rgb(194, 194, 194, 0.8);
+                font-family: 'Carrois Gothic SC', sans-serif;
                 font-size: 25px;
-                color: rgb(255, 255, 255);
+                color: rgb(182, 0, 0);
                 text-decoration: none;
                 padding: 30px;
-                margin: 80px; 
-                border: solid 3px white; 
+                margin: 80px;  
                 transition: 1s;         
             }
             div:hover {
-                background: gray;
+                background: white;
+                font-size: 30px;
             }
         }
     }

@@ -4,8 +4,8 @@ const MoreButton = () =>
     <div id='bossesPreviewMoreButton'>
         <a href='#'>
             <div>
-                MORE
-        </div>
+                full list
+            </div>
         </a>
     </div>
 

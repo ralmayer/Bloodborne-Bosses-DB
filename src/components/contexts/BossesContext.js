@@ -6,7 +6,7 @@ const BossesContextProvider = (props) => {
     const [bossesList, setBossesList] = useState(null)
 
     const fetchData = async () => {
-        const res = await fetch('https://api.myjson.com/bins/13ityd')
+        const res = await fetch('https://api.myjson.com/bins/rf4uh')
         const data = await res.json()
         setBossesList(data)
     }

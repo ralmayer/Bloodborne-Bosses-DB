@@ -26,6 +26,60 @@
             "weakness": "Fire and Serration",
             "lore": "Vicar Amelia is a high-ranking member of the Healing Church, the successor of Laurence, and to whom his Gold Pendant has been passed down.\n In stark contrast with the Beast Patients, people that slowly turn into monsters under layers of bandages, this woman shows perfectly what happens when a human mutates suddenly into a full-fledged Beast: at first Amelia is seen as a normal female priest with tattered white robes, kneeling and reciting a prayer, but after a few instants she changes abruptly. Her skin ruptures under the force of her new body, splattering blood all around: now another kind of Cleric Beast, her ash blonde hair has become a long wild mane while her face, covered by scraps of her clothes like the rest of her body, has turned into a lupine head with thin antlers and a slasher smile of sharp teeth.\nEven if she appears less bulky and almost skeletal compared to both male Cleric Beasts, she is far from weak and frail: her hands' talons, which she can extend like a cat, are sharp and so hard that they emit sparks while grinding on stone. Her scrawny arms are powerful as well, being able to create a strong shockwave by smashing them to the floor.\nEven the same Gold Pendant that she still clutches proves to be more than a simple locket: Amelia is able to use it to channel energy in order to start healing her wounds in a pillar of golden light, thus making it some sort of Hunter Tool.\nAs a 'True' Beast she will take extra damage from Serration.\n",
             "avatar": "https://bloodborne.wiki.fextralife.com/file/Bloodborne/Amelia_Roaring_Advance.jpg?v=1507914555949"
-        }
+        },
+        {
+            "id": "blood-starved-beast",
+            "name": "Blood-starved Beast",
+            "location": "Old Yahrnam",
+            "drops": "Pthumeru Chalice",
+            "weakness": "Fire and Serration",
+            "lore": "It is suggested that the Blood-starved Beast was a person receiving blood healing as a part of rituals performed by Healing Church members in Old Yharnam in order to learn more about the Great Ones and the effects of blood healing. This is demonstrated a corpse of another Blood-Starved Beast can be found crucified and chained in the small chapel of Old Yharnam.\nMoreover, below the corpse, the player finds ritual blood. This suggests that the Blood-starved Beast has some connection to ritualistic practices performed by the Healing Church and has some significance to Blood-Healing and its administration. In this case, it is well possible that these Beasts 'must' be skinned alive in order to collect their blood without killing them, since they would simply regenerate minor cuts or surgical shunts.\nIt is not unlikely that these beasts were once Blood Saints, the Healing Church's nuns chosen to be sources of healing blood: this would explain both why these beings are 'blood starved' (they were skinned to take their blood) and why there are similarities to the Female Beast Patients.\nIn Bloodborne: The Death of Sleep, a specific Blood-starved Beast relentlessly pursues the hunter and The Child on their travels until it is finally put down by the latter.",
+            "avatar": "http://3.bp.blogspot.com/-b6_r8X2ihrg/VP-eYaLxWOI/AAAAAAAAAQ4/Ugx9hXxnGhE/s1600/Blood_Starved%2BBeast.jpg"
+        },
+        {
+            "id": "witch-of-hemwick",
+            "name": "The Witch of Hemwick",
+            "location": "Hemwick Charnel Lane",
+            "drops": "Bloodshot Eyeball x4",
+            "weakness": "None",
+            "lore": "The Witch of Hemwick conducts suspicious rituals in the deep of the night, gathering the eyeballs of the living. Her outfit is adorned with her victim's eyes, most likely some connection to the Great Ones.",
+            "avatar": "https://www.gamepur.com/files/styles/max_width_770px/public/images/2014/bloodborne-part-6-guide.jpg?itok=8jYOXC7D"
+        },
+        {
+            "id": "darkbeast-paarl",
+            "name": "Darkbeast Paarl",
+            "location": "Old Yahrnam",
+            "drops": "Spark Hunter Badge, Lower Loran Chalice",
+            "weakness": "Arcane, Fire and Serration",
+            "lore": "The Darkbeast is a giant skeletal beast with long strands of blueish black hair that emanate electricity throughout its entire body. Its bones and skull appear to have engravings on them, perhaps a side effect of the lightning that permeates its very being.\nTrue to its electrical nature, the lightning that courses through its body makes it move in erratic, off-speed movements that keeps its foes constantly on the move. It also allows the Darkbeast to bombard the players with bolts of lightning.\nThe Darkbeast is like any other beast in that it is vulnerable to Fire damage and Serration.",
+            "avatar": "http://hardcore-gamer.s3.amazonaws.com/uploads/2015/03/darkbeast-paarl.jpg"
+        },
+        {
+            "id": "shadow-of-yahrnam",
+            "name": "Shadow of Yharnam",
+            "location": "Forbidden Woods",
+            "drops": "Blood Rapture",
+            "weakness": "Arcane and Bolt",
+            "lore": "The Shadow of Yharnam consists of three figures shrouded in black robes. As the fight progresses they are revealed to have been infected with the parasitic snakes that infest the woods and undergo gruesome mutations. They share a symbiotic link with the vipers, either transforming their arms to use them as whips or summoning gigantic serpents to devour victims.",
+            "avatar": "https://www.psu.com/app/uploads/2015/03/shadow-of-yharnam.jpg"
+        },
+        {
+            "id": "rom-the-vacuous-spider",
+            "name": "Rom, the Vacuous Spider",
+            "location": "Moonside Lake",
+            "drops": "Kin Coldblood(12)x1",
+            "weakness": "Bolt, Fire, Arcane",
+            "lore": "Rom, the Vacuous Spider controls the barrier that prevents normal Yharnamites from seeing the true horrors around them, such as the Lesser Amygdalas crawling around the Cathedral Ward. Rom was once a scholar of Byrgenwerthwhom at some point went through metamorphosis into a Great One courtesy of Kos, according to dialogue given by Micolash.\n’The Byrgenwerth spider hides all manner of rituals and keeps our lost master from us. A terrible shame. It makes my head shudder uncontrollably’ - Note from library area just beyond the Tomb of Oedon.\n’The spider hides all manner of rituals, certain to reveal nothing, for true enlightenment need not be shared.’  - Note from the second floor of Byrgenwerth.\n’Ahh, Kos or some say Kosm... Do you hear our prayers? As you once did for the vacuous Rom, grant us eyes, grant us eyes.’- Micolash, Host of the Nightmare.",
+            "avatar": "https://i.ytimg.com/vi/VbN4AB4T8ho/maxresdefault.jpg"
+        },
+        {
+            "id": "the-one-reborn",
+            "name": "The One Reborn",
+            "location": "Yahar'gul, Unseen Village",
+            "drops": "Yellow Backbone x3",
+            "weakness": "Fire and Bolt",
+            "lore": "The One Reborn seems to be the final, presumably failed result of an unholy experiment made in Yahar’gul with the intention of ascending humankind to the status of the Great Ones.",
+            "avatar": "https://bloodborne.wiki.fextralife.com/file/Bloodborne/one_reborn.jpg"
+        }      
     ]
 }

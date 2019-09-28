@@ -8,7 +8,7 @@ const BossesPreviewCard = () => {
 
     return (
             <div className='boss-preview-cards'>
-                {bossesList.bosses.map((boss, index) =>
+                {bossesList.bosses.slice(0, 3).map((boss, index) =>
                     <Fragment>
                         <div className='boss-preview-avatar' id={`bossPreviewAvatar${index}`}><img src={boss.avatar} alt={boss.id} /></div>
                         <div className='boss-preview-title' id={`bossPreviewTitle${index}`}><a href='#'>{boss.name}</a></div>

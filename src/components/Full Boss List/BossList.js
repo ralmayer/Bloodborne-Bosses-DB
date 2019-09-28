@@ -1,11 +1,19 @@
-import React from 'react' 
+import React from 'react'
 import BossCard from './BossCard'
 import Nav from '../nav/Nav'
-import BossListHeader from './BossListHeader'
+import Footer from '../Home/Footer'
 
 const BossList = () =>
     <div>
-        <BossListHeader />
+        <div id='bossListHeader'>
+            <Nav />
+        </div>
+        <div id='bossList'>
+            <div className='container'>
+                <BossCard />
+            </div>
+        </div>
+        <Footer />
     </div>
 
 

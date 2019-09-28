@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Carrois+Gothic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:700&display=swap');
+
+#bossList {
+    width: 100%;
+    height: 100%;
+    background: black;
+    .container {
+        height: auto;
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        .boss-card {
+            width: 80%;
+            height: 40vh;
+            overflow: hidden;
+            transition: 0.5s;
+            // background: red;
+            .boss-card-avatar {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                img {
+                    height: 100%;
+                    width: auto;
+                    margin-left: -100px;
+                }
+                .avatar-menu {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    transform: translate(-50%, -50%);
+                    background: rgb(0, 0, 0, 0.2);
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    #avatarMenuTitle {
+                        border-bottom: 2px solid rgb(223, 199, 149,);
+                        padding: 10px;
+                        background: rgba(0, 0, 0, 0.6);
+                        margin: 5px;
+                        text-align: center;
+                        p {
+                            font-family: 'Roboto Slab', serif;
+                            font-size: 20px;
+                            font-style: italic;
+                            width: auto;
+                            color: rgb(223, 199, 149,);
+                        }
+                    }
+                    .break {
+                        width: 100%;
+                    }
+                    a {
+                        text-decoration: none;
+                        color: white;
+                        font-family: 'Carrois Gothic SC', sans-serif;
+                        div {
+                            border-radius: 12px;
+                            padding: 12px;
+                            background-color: rgb(182, 0, 0);
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 400px) {
+    #bossList {
+        .container {
+            .boss-card {
+                width: 50%;
+                margin: 5px;
+                #witch-of-hemwick {
+                    img {
+                        height: 130%;
+                    }
+                }
+                }
+            }
+        }
+}
+
+@media screen and (min-width: 400px) {
+    #bossList {
+        .container {
+            .boss-card {
+                width: 50%;
+                margin: 5px;
+                #witch-of-hemwick {
+                    img {
+                        height: 130%;
+                    }
+                }
+                }
+            }
+        }
+}
+
+@media screen and (min-width: 500px) {
+    #bossList {
+        .container {
+            .boss-card {
+                width: 30%;
+                margin: 0;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 780px) {
+    #bossList {
+        .container {
+            .boss-card {
+                .boss-card-avatar {
+                    .avatar-menu {
+                        opacity: 0;
+                        transition: 1s;
+                        align-items: center;
+                        #avatarMenuTitle {
+                            border-bottom: none;
+                            background: none;
+                            width: 100%;
+                            text-align: center;
+                            p {
+                                color: rgb(192, 252, 255);
+                                font-size: 50px
+                            }
+                        }
+                    }
+                }
+                .boss-card-avatar:hover {
+                    .avatar-menu {
+                        opacity: 1;
+                        background: rgb(0, 0, 0, 0.6)
+                    }
+                }
+            }
+            .boss-card:hover{
+                width: 32%;
+            }
+        }
+    }
+}

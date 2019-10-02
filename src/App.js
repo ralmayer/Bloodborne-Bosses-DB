@@ -5,6 +5,7 @@ import './App.scss';
 import Home from './components/Home/Home';
 import About from './components/About';
 import BossList from './components/Full Boss List/BossList';
+import BossPage from './components/Full Boss List/BossPage';
 
 function App() {
     return (
@@ -14,7 +15,9 @@ function App() {
                     <Fragment>
                         <Route path="/" component={Home} exact />
                         <Route path="/about" component={About} />
-                        <Route path="/bosses" component={BossList} />
+                        <Route path="/bosses" component={BossList} exact/>
+                        <Route path="/bosses/:id" component={BossPage} />
+                        {/* <Route path="/bosses/:id" /> */}
                     </Fragment>
                 </BrowserRouter>
             </BossesContextProvider>

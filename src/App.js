@@ -17,7 +17,6 @@ function App() {
                         <Route path="/about" component={About} />
                         <Route path="/bosses" component={BossList} exact/>
                         <Route path="/bosses/:id" component={BossPage} />
-                        {/* <Route path="/bosses/:id" /> */}
                     </Fragment>
                 </BrowserRouter>
             </BossesContextProvider>

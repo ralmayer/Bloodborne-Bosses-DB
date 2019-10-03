@@ -1,13 +1,16 @@
 import React, { Fragment, useContext } from 'react'
 import { BossesContext } from '../contexts/BossesContext'
 
-
-const BossPage = () => {
+const BossPage = ({match: {params: {id}}}) => {
+    
     const { bossesList } = useContext(BossesContext)
 
     return (
+        
         <Fragment>
-            {bossesList ? bossesList.bosses.map(boss => <div key={boss.id}>{boss.name}</div>) : null}
+            <div>
+                {bossesList ? bossesList.bosses.filter(obj => obj.id === id)[0].name : null}
+            </div>
         </Fragment>
     )
 }

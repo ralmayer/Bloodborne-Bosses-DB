@@ -1,26 +1,30 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { BossesContext } from '../contexts/BossesContext'
 import Nav from '../nav/Nav'
 import Footer from '../Home/Footer'
 
 const BossPage = ({match: {params: {id}}}) => {
     
-    const { bossesList } = useContext(BossesContext)
+    const [boss, setBoss] = useState({})
 
-    // reminder: replase context import with a standalone API call to avoid the
-    // "cannot read property 'bosses' of null" issue on BossPage reloads 
+    const fetchData = async () => {
+        const res = await fetch('https://api.myjson.com/bins/evpjj')
+        const data = await res.json()
+        const { name, location, drops, weakness, lore, avatar } = data.bosses.filter(obj => obj.id === id)[0]
+        setBoss({name, location, drops, weakness, lore, avatar})
+    }
 
-    const { name, location, drops, weakness, lore, avatar } = bossesList.bosses.filter(obj => obj.id === id)[0]
-
-    return (
+    useEffect(() => {
+        fetchData()
         
+    }, [])
+
+    return (      
         <Fragment>
             <div id='bossPage'>
             <Nav />
-                {bossesList ? <div id="bossSection">
-                    <ul>
-                        <li></li>
-                    </ul>
+                {boss ? <div id="bossSection">
+                    {boss.name}
                 </div> : null}
             </div>
             <Footer />

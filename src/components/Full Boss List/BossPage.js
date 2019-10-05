@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import Nav from '../nav/Nav'
 import Footer from '../Home/Footer'
+import { Link } from 'react-router-dom'
 
 const BossPage = ({ match: { params: { id } } }) => {
 
@@ -24,7 +25,7 @@ const BossPage = ({ match: { params: { id } } }) => {
                 <Nav />
                 {boss ?
                     <Fragment>
-                        <div id="bossSection" style={{ backgroundImage: `url(${boss.avatar})`, backgroundPosition: '-500px', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+                        <div id="bossSection" style={{ backgroundImage: `url(${boss.avatar})`, backgroundPosition: '-200px', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
                             <ul>
                                 <li></li>
                                 <li></li>
@@ -34,12 +35,22 @@ const BossPage = ({ match: { params: { id } } }) => {
                             </ul>
                         </div>
                         <div id='stats'>
-                            <div>Location: </div>
+                            <div className='stat-title'>Location: </div>
                             <div>{boss.location}</div>
-                            <div>Drops:</div>
+                            <div className='stat-title'>Drops:</div>
                             <div>{boss.drops}</div>
-                            <div>Weakness:</div>
+                            <div className='stat-title'>Weakness:</div>
                             <div>{boss.weakness}</div>
+                        </div>
+                        <div id='lore'>
+                            <div><p>Lore</p></div>
+                            <div className='break'></div>
+                            <div>{boss.lore}</div>
+                            <div style={{marginTop: '50px'}}>
+                                <Link to='/bosses'>
+                                    <img src='https://media1.giphy.com/media/pLCy6fPZG73wI/source.gif' alt='mark' style={{ width: '200px' }} />
+                                </Link>
+                            </div>
                         </div>
                     </Fragment>
                     : null}

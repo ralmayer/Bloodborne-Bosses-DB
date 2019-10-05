@@ -29,7 +29,7 @@
         padding-top: 80px;
         padding-bottom: 100px;
         .boss-card {
-            width: 80%;
+            width: 100%;
             height: 40vh;
             overflow: hidden;
             transition: 0.5s;
@@ -56,17 +56,18 @@
                     align-items: center;
                     flex-wrap: wrap;
                     #avatarMenuTitle {
-                        border-bottom: 2px solid rgb(223, 199, 149,);
+                        // border-bottom: 2px solid rgb(223, 199, 149,);
                         padding: 10px;
                         background: rgba(0, 0, 0, 0.6);
                         margin: 5px;
                         text-align: center;
                         p {
                             font-family: 'Roboto Slab', serif;
-                            font-size: 20px;
+                            font-size: 30px;
                             font-style: italic;
                             width: auto;
-                            color: rgb(223, 199, 149,);
+                            color: rgb(192, 252, 255);
+                            padding: 10px;
                         }
                     }
                     .break {

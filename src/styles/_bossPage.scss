@@ -1,4 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Carrois+Gothic+SC&display=swap');
+
 #bossPage {
     background: black;
     padding-bottom: 100px;
+    width: 100vw;
+    overflow: hidden;
+    #bossSection {
+        width: 100%;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        ul { width: 100%;
+            li {
+                height: 33.34%;
+                text-align: center;
+            }
+            #bossInfo {
+                background: rgba(192, 252, 255, 0.6);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                #bossName {
+                    font-family: 'EB Garamond', serif;
+                    font-size: 60px;
+                    color: rgb(255, 255, 255);   
+                }
+            }
+        }
+        
+    }
+    #stats {
+        height: 20vh;
+        width: 80%;
+        padding: 10px;
+        display: flex;
+        margin: auto;
+        margin-top: 50px;
+        justify-items: center;
+        align-items: center;
+        flex-wrap: wrap;
+        border: 2px rgb(88, 23, 23) solid;
+        div {
+            width: 50%;
+            text-align: center;
+            color: white;
+            font-family: 'Carrois Gothic SC', sans-serif;
+        }
+        #stats:nth-child(odd) {
+            color: rgb(223, 199, 149,);
+    }
+
+    }
+
 }

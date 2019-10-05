@@ -1,11 +1,11 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'; 
+import { NavLink } from 'react-router-dom';
 
-const MobileLinks = ({status}) => 
+const MobileLinks = ({ status }) =>
     <ul className={status ? 'nav-links-mobile' : 'nav-disabled'}>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/bosses'>Bosses</NavLink></li>
-        <li><NavLink to='/about'>About</NavLink></li>
+        <NavLink to='/'><li>Home</li></NavLink>
+        <NavLink to='/bosses'><li>Bosses</li></NavLink>
+        <NavLink to='/about'><li>About</li></NavLink>
     </ul>
 
 

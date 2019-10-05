@@ -90,23 +90,7 @@
     }
 }
 
-@media screen and (min-width: 400px) {
-    #bossList {
-        .container {
-            .boss-card {
-                width: 50%;
-                margin: 5px;
-                #witch-of-hemwick {
-                    img {
-                        height: 130%;
-                    }
-                }
-                }
-            }
-        }
-}
-
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 500px) {
     #bossList {
         .container {
             .boss-card {

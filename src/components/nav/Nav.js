@@ -14,11 +14,11 @@ const Nav = () => {
     return (
         <div id='nav'>
             <div id='logo'>
-                Logo
+            祝福する
             </div>
             <DesktopLinks />
-            <MobileLinks status={state}/>
-            <BurgerButton toggleClass={toggleClass}/>
+            <MobileLinks status={state} />
+            <BurgerButton toggleClass={toggleClass} />
         </div >
     )
 

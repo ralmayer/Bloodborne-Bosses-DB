@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const MoreButton = () =>
     <div id='bossesPreviewMoreButton'>
-        <a href='#'>
+        <Link to='/bosses'>
             <div>
                 full list
             </div>
-        </a>
+        </Link>
     </div>
 
 export default MoreButton

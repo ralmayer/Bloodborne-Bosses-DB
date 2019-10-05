@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const NestedMoreButton = () =>
+const NestedMoreButton = ({ path }) =>
     <div id='nestedBossesPreviewMoreButton'>
-        <a href='#'>
+        <Link to={`/bosses/${path}`}>
             <div>
                 learn more
             </div>
-        </a>
+        </Link>
     </div>
 
 export default NestedMoreButton

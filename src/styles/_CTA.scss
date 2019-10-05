@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Carrois+Gothic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
 
 .CTA {
     height: 300px;
@@ -13,9 +13,9 @@
             text-decoration: none;
             div {   
                 background: rgb(194, 194, 194, 0.8);
-                font-family: 'Carrois Gothic SC', sans-serif;
-                font-size: 25px;
-                color: rgb(182, 0, 0);
+                font-family: 'EB Garamond', serif;
+                font-size: 40px;
+                color: rgb(223, 199, 149);
                 text-decoration: none;
                 padding: 30px;
                 margin: 80px;  
@@ -23,7 +23,7 @@
             }
             div:hover {
                 background: white;
-                font-size: 30px;
+                font-size: 50px;
             }
         }
     }

@@ -6,12 +6,16 @@
     padding-bottom: 10px;
     width: 100vw;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     #bossSection {
         width: 100%;
         height: 50vh;
         display: flex;
         justify-content: center;
         align-content: center;
+        background-position: -200px;
         ul { width: 100%;
             li {
                 height: 33.34%;
@@ -73,5 +77,20 @@
             line-height: 25px;
         }
     }
+}
 
+@media screen and (min-width: 780px) {
+    #bossPage {
+        #bossSection {
+            width: 70vw;
+            justify-self: center;
+            background-position: 1;
+        }
+        #stats {
+            width: 40%;
+        }
+        #lore {
+            width: 61%;
+        }
+    }
 }

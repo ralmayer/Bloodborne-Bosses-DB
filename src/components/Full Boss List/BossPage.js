@@ -25,7 +25,7 @@ const BossPage = ({ match: { params: { id } } }) => {
                 <Nav />
                 {boss ?
                     <Fragment>
-                        <div id="bossSection" style={{ backgroundImage: `url(${boss.avatar})`, backgroundPosition: '-200px', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+                        <div id="bossSection" style={{ backgroundImage: `url(${boss.avatar})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
                             <ul>
                                 <li></li>
                                 <li></li>

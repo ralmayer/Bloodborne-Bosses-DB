@@ -8,7 +8,7 @@ const BossPage = ({ match: { params: { id } } }) => {
     const [boss, setBoss] = useState({})
 
     const fetchData = async () => {
-        const res = await fetch('https://api.myjson.com/bins/evpjj')
+        const res = await fetch('https://api.myjson.com/bins/102b1y')
         const data = await res.json()
         const { name, location, drops, weakness, lore, avatar } = data.bosses.filter(obj => obj.id === id)[0]
         setBoss({ name, location, drops, weakness, lore, avatar })

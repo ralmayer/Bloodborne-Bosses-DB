@@ -16,7 +16,6 @@ const BossPage = ({ match: { params: { id } } }) => {
 
     useEffect(() => {
         fetchData()
-
     }, [])
 
     return (

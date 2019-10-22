@@ -1,15 +1,20 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import BossesContextProvider from './components/contexts/BossesContext'
+import AuthContextProvider from './components/contexts/AuthContext'
 import './App.scss';
 import Home from './components/Home/Home';
 import About from './components/About';
 import BossList from './components/Full Boss List/BossList';
 import BossPage from './components/Full Boss List/BossPage';
+import Register from './components/auth/Register'
+import Login from './components/auth/Login'
+
 
 function App() {
     return (
         <div>
+            <AuthContextProvider>
             <BossesContextProvider>
                 <BrowserRouter>
                     <Fragment>
@@ -17,9 +22,12 @@ function App() {
                         <Route path="/about" component={About} />
                         <Route path="/bosses" component={BossList} exact/>
                         <Route path="/bosses/:id" component={BossPage} />
+                        <Route path="/register" component={Register}/>
+                        <Route path="/login" component={Login}/>
                     </Fragment>
                 </BrowserRouter>
             </BossesContextProvider>
+            </AuthContextProvider>
         </div>
     )
 

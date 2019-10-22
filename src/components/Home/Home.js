@@ -17,7 +17,7 @@ const Home = () => {
                     <CTA />
                     <Footer />
                 </Fragment>
-                : null}
+                : <h1>Loading...</h1>}
         </Fragment>
     )
 }

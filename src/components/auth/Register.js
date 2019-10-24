@@ -8,9 +8,11 @@ const Register = (props) => {
     async function onRegister() {
         try {
             await firebase.register(name, email, password)
+        } catch (error) { alert(error.message) }
+    }
 
-            props.history.replace('/')
-        } catch(error) { alert(error.message) }
+    async function logout() {
+        await firebase.logout()
     }
 
     return (
@@ -21,7 +23,7 @@ const Register = (props) => {
                 value={name}
                 name="display name"
                 placeholder="display name"
-                onChange={e => setName(e.target.value)}
+                onChange={e => { setName(e.target.value) }}
             />
             <br />
             <input
@@ -39,7 +41,19 @@ const Register = (props) => {
                 placeholder="password"
                 onChange={e => setPassword(e.target.value)}
             />
-            <button onClick={onRegister}>Submit</button>
+            <br />
+            <button onClick={e => {
+                e.preventDefault()
+                onRegister()
+                setName('')
+                setEmail('')
+                setPassword('')
+            }}>Submit</button>
+            <br />
+            <button onClick={e => {
+                e.preventDefault()
+                logout()
+            }}>Sign Out</button>
         </form>
     )
 }

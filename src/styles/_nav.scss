@@ -30,7 +30,7 @@
     }
     .nav-links-mobile {
         position: absolute;
-        height: 30vh;
+        height: 40vh;
         top: 15vh;
         background-color: rgba(0,0,0, 0.6);
         display: flex;
@@ -71,6 +71,10 @@
             display: flex;
             justify-content: space-around;
             width: 20%;
+            a {
+                text-decoration: none;
+                color: rgb(255, 255, 255);
+            }
             li {
                 padding: 20px;
                 a {

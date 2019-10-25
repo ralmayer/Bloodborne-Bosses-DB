@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, Fragment } from 'react'
 import firebase from '../firebase'
 import { AuthContext } from '../contexts/AuthContext'
+import Nav from '../nav/Nav'
 
 const Register = (props) => {
     const { name, setName, email, setEmail, password, setPassword } = useContext(AuthContext)
@@ -16,7 +17,8 @@ const Register = (props) => {
     }
 
     return (
-
+        <Fragment>
+            <Nav />
         <form>
             <input
                 type="text"
@@ -55,6 +57,7 @@ const Register = (props) => {
                 logout()
             }}>Sign Out</button>
         </form>
+        </Fragment>
     )
 }
 

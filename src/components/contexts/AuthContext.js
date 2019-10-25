@@ -8,8 +8,7 @@ const AuthContextProvider = (props) => {
     const [user, setUser] = useState('')
     const [email, setEmail] = useState('llev4n@gmail.com')
     const [password, setPassword] = useState('CarpenterBr00t')
-    const [name, setName] = useState('')
-    const [avatar, setAvatar] = useState('')
+
 
     useEffect(() => {
 		firebase.isInitialized().then(val => {
@@ -20,7 +19,7 @@ const AuthContextProvider = (props) => {
  
 
     return (
-        <AuthContext.Provider value={{ user, setUser, email, setEmail, password, setPassword, name, setName, avatar, setAvatar }}>
+        <AuthContext.Provider value={{ user, setUser, email, setEmail, password, setPassword}}>
             {props.children}
         </AuthContext.Provider>
     )

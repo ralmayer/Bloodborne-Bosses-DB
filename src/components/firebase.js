@@ -18,6 +18,7 @@ class Firebase {
         app.initializeApp(firebaseConfig)
         this.auth = app.auth()
         this.db = app.firestore()
+        this.auth.onAuthStateChanged(cred => cred ? console.log(`welcome back, ${cred.displayName}`) : console.log('out'))
     }
 
     login(email, password) {
@@ -39,6 +40,10 @@ class Firebase {
 		return new Promise(resolve => {
 			this.auth.onAuthStateChanged(resolve)
 		})
-	}
+    }
+    
+    getAuthState() {
+        return this.auth.onAuthStateChanged()
+    }
 }
 export default new Firebase()

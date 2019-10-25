@@ -8,8 +8,7 @@ const Login = () => {
 
     async function login() {
         try {
-            await firebase.login(email, password)
-
+            await firebase.login(email, password).then(res => setUser(res.user))
 
          } catch (error) { alert(error.message) }
     }
@@ -48,7 +47,7 @@ const Login = () => {
             <br />
             <button onClick={e => {
                 e.preventDefault()
-                logout()
+                logout().then(setUser(''))
             }}>Sign Out</button>
         </form>
         <br />

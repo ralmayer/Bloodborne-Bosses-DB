@@ -41,9 +41,17 @@ class Firebase {
 			this.auth.onAuthStateChanged(resolve)
 		})
     }
-    
-    getAuthState() {
-        return this.auth.onAuthStateChanged()
+
+    getCurrentUser() {
+        return this.auth.currentUser
     }
+    
+    updateProfile(name, avatar) {
+        return this.auth.currentUser.updateProfile({
+            displayName: name,
+            photoURL: avatar
+        })
+    }
+
 }
 export default new Firebase()

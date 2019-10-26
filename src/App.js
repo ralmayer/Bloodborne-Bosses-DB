@@ -4,11 +4,11 @@ import BossesContextProvider from './components/contexts/BossesContext'
 import AuthContextProvider from './components/contexts/AuthContext'
 import './App.scss';
 import Home from './components/Home/Home';
-import About from './components/About';
 import BossList from './components/Full Boss List/BossList';
 import BossPage from './components/Full Boss List/BossPage';
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
+import { Profile } from './components/Profile';
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
                 <BrowserRouter>
                     <Fragment>
                         <Route path="/" component={Home} exact />
-                        <Route path="/about" component={About} />
+                        <Route path="/users/:id" component={Profile} />
                         <Route path="/bosses" component={BossList} exact/>
                         <Route path="/bosses/:id" component={BossPage} />
                         <Route path="/register" component={Register}/>

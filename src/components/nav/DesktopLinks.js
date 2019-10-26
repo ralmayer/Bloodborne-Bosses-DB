@@ -16,7 +16,9 @@ const DesktopLinks = () => {
             <li><NavLink to='/bosses'>Bosses</NavLink></li>
             {user ? <Fragment>
                 <li>
+                    <NavLink to={user ? `users/${user.displayName}` : '/'}>
                     Profile
+                    </NavLink>
                 </li>
 
                 <a href='#'>

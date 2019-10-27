@@ -15,11 +15,11 @@ const MobileLinks = ({ status }) => {
             <NavLink to='/'><li>Home</li></NavLink>
             <NavLink to='/bosses'><li>Bosses</li></NavLink>
             {user ? <>
-
-                <li>
-                    Profile
+                <NavLink to={user ? '/profile' : '/'}>
+                    <li>
+                        Profile
                     </li>
-
+                </NavLink>
                 <a href='#'>
                     <li onClick={() => {
                         logout()
@@ -31,19 +31,19 @@ const MobileLinks = ({ status }) => {
 
                 </a>
             </> :
-                <Fragment>
-                    <NavLink to='/login'>
-                        <li>
-                            Login
-                </li>
-                    </NavLink>
+            <Fragment>
+                <NavLink to='/login'>
+                    <li>
+                        Login
+                    </li>
+                </NavLink>
 
-                    <NavLink to='/register'>
-                        <li>
-                            Register
-                </li>
-                    </NavLink>
-                </Fragment>}
+                <NavLink to='/register'>
+                    <li>
+                        Register
+                    </li>
+                </NavLink>
+            </Fragment>}
         </ul>
     )
 }

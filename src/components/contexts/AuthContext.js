@@ -6,8 +6,8 @@ export const AuthContext = createContext()
 const AuthContextProvider = (props) => {
 
     const [user, setUser] = useState('')
-    const [email, setEmail] = useState('llev4n@gmail.com')
-    const [password, setPassword] = useState('CarpenterBr00t')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
 
     useEffect(() => {

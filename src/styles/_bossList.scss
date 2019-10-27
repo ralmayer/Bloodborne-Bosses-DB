@@ -33,6 +33,7 @@
             height: 40vh;
             overflow: hidden;
             transition: 0.5s;
+            margin-top: 10px;
             // background: red;
             .boss-card-avatar {
                 width: 100%;
@@ -93,6 +94,7 @@
     #bossList {
         .container {
             .boss-card {
+                margin-top: 0px;
                 .boss-card-avatar {
                     img {
                         margin-left: -100px;

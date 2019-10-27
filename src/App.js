@@ -19,7 +19,7 @@ function App() {
                 <BrowserRouter>
                     <Fragment>
                         <Route path="/" component={Home} exact />
-                        <Route path="/users/:id" component={Profile} />
+                        <Route path="/profile" component={Profile} />
                         <Route path="/bosses" component={BossList} exact/>
                         <Route path="/bosses/:id" component={BossPage} />
                         <Route path="/register" component={Register}/>

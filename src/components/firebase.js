@@ -52,6 +52,14 @@ class Firebase {
             photoURL: avatar
         })
     }
-
+    addComment(collectionName, posterID, content) {
+        return this.db.collection(collectionName).add({
+            posterID: posterID,
+            content: content
+        })
+    }
+    getData() {
+        return this.db.collection('shouts').onSnapshot(snapshot => snapshot.docs.map(doc => console.log(doc.data().content)))
+    }
 }
 export default new Firebase()

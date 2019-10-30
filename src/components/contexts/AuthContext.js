@@ -10,11 +10,11 @@ const AuthContextProvider = (props) => {
     const [password, setPassword] = useState('')
 
 
-    useEffect(() => {
-		firebase.isInitialized().then(val => {
-            setUser(val)
-		})
-    }, [])
+    // useEffect(() => {
+	// 	firebase.isInitialized().then(val => {
+    //         setUser(val)
+	// 	}).then(console.log(user))
+    // }, [])
 
  
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
 import MobileLinks from './MobileLinks';
 import DesktopLinks from './DesktopLinks';
 import BurgerButton from './BurgerButton';
@@ -14,7 +15,7 @@ const Nav = () => {
     return (
         <div id='nav'>
             <div id='logo'>
-            祝福する
+            <NavLink to='/credits' style={{textDecoration: 'none', color: 'white'}}>祝福する</NavLink>
             </div>
             <DesktopLinks />
             <MobileLinks status={state} />

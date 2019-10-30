@@ -14,9 +14,9 @@ const DesktopLinks = () => {
         <ul id='nav-links'>
             <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/bosses'>Bosses</NavLink></li>
-            {user ? <Fragment>
+            {firebase.getCurrentUser() ? <Fragment>
                 <li>
-                    <NavLink to={user ? '/profile' : '/'}>
+                    <NavLink to={firebase.getCurrentUser() ? '/profile' : '/'}>
                     Profile
                     </NavLink>
                 </li>

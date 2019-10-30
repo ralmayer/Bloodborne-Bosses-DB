@@ -18,7 +18,6 @@ class Firebase {
         app.initializeApp(firebaseConfig)
         this.auth = app.auth()
         this.db = app.firestore()
-        this.auth.onAuthStateChanged(cred => cred ? console.log(`welcome back, ${cred.displayName}`) : console.log('out'))
     }
 
     login(email, password) {
@@ -29,11 +28,12 @@ class Firebase {
         return this.auth.signOut()
     }
 
-    async register(name, email, password) {
-        await this.auth.createUserWithEmailAndPassword(email, password)
-        return this.auth.currentUser.updateProfile({
-            displayName: name
-        })
+    register(name, email, password) {
+        this.auth.createUserWithEmailAndPassword(email, password)
+        .then(cred => this.db.collection('users').doc(cred.user.uid).set({
+            name: name
+        }))
+
     }
 
     isInitialized() {
@@ -46,20 +46,26 @@ class Firebase {
         return this.auth.currentUser
     }
     
-    updateProfile(name, avatar) {
-        return this.auth.currentUser.updateProfile({
-            displayName: name,
-            photoURL: avatar
-        })
-    }
     addComment(collectionName, posterID, content) {
         return this.db.collection(collectionName).add({
             posterID: posterID,
             content: content
         })
     }
-    getData() {
-        return this.db.collection('shouts').onSnapshot(snapshot => snapshot.docs.map(doc => console.log(doc.data().content)))
+
+    getData(collectionName) {
+        return this.db.collection(collectionName)
+    }
+
+    getUserDisplayInfo(userID) {
+        this.db.collection('users').doc(userID).get().then(doc =>  console.log(doc.data().name))
+    }
+
+    updateProfile(userID, name, avatar) {
+        return this.db.collection('users').doc(userID).update({
+            name: name,
+            avatar: avatar
+        })
     }
 }
 export default new Firebase()

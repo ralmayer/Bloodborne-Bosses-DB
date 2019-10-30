@@ -1,25 +1,31 @@
-import React, { useContext, Fragment } from 'react'
+import React, { useState, useContext, Fragment } from 'react'
 import firebase from '../firebase'
 import { AuthContext } from '../contexts/AuthContext'
 import Nav from '../nav/Nav'
 
 const Register = (props) => {
-    const { name, setName, email, setEmail, password, setPassword } = useContext(AuthContext)
 
-    async function onRegister() {
-        try {
-            await firebase.register(name, email, password)
-        } catch (error) { alert(error.message) }
+    const {email, setEmail, password, setPassword } = useContext(AuthContext)
+    const[name, setName] = useState('')
+
+    function register() {
+        firebase.register(name, email, password)
     }
 
-    async function logout() {
-        await firebase.logout()
+    function logout() {
+        firebase.logout()
     }
 
     return (
         <Fragment>
             <Nav />
-        <form>
+        <form onSubmit={e => {
+                e.preventDefault()
+                register()
+                setName('')
+                setEmail('')
+                setPassword('')
+            }}>
             <input
                 type="text"
                 value={name}
@@ -44,13 +50,7 @@ const Register = (props) => {
                 onChange={e => setPassword(e.target.value)}
             />
             <br />
-            <button onClick={e => {
-                e.preventDefault()
-                onRegister()
-                setName('')
-                setEmail('')
-                setPassword('')
-            }}>Submit</button>
+            <button>Submit</button>
             <br />
             <button onClick={e => {
                 e.preventDefault()

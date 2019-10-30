@@ -1,26 +1,38 @@
-import React, { useState, useContext, Fragment } from 'react'
+import React, { useState, useContext, useEffect, Fragment } from 'react'
 import Nav from './nav/Nav'
 import firebase from './firebase'
 import { AuthContext } from './contexts/AuthContext'
 
 export const Profile = ({ match: { params: { id } } }) => {
 
-    const { user } = useContext(AuthContext)
-
-    const [name, setName] = useState(user ? user.displayName : '')
-    const [avatar, setAvatar] = useState(user ? user.avatarURL : '')
+    const [user, setUser] = useState('')
+    const [name, setName] = useState(user.name && user.name)
+    const [avatar, setAvatar] = useState(user.avatar && user.avatar)
     const [edit, setEdit] = useState(false)
     const [updateStatus, setUpdateStatus] = useState(false)
 
+ 
+    useEffect(() => {
+        firebase.getData('users').doc('WkzSjAJMVwhAE4Jr43b8QSUsLef2').get().then(doc =>  {
+            setUser(doc.data())
+        setName(doc.data().name)
+        setAvatar(doc.data().avatar)
+        })
+    }
+    , [])
 
 
-
-    return firebase.getCurrentUser() ? <Fragment>
+    return user ? <Fragment>
         <Nav />
-        <img src={firebase.getCurrentUser().photoURL} alt='profile' /> 
-        {console.log(firebase.getCurrentUser())}
-        <h1>{user.displayName}</h1>
-        {/* <h1>{id}</h1> */}
+        
+        <img src={user.avatar ? user.avatar : 'https://i.imgur.com/WlTzMuD.jpg'} alt='avatar' style={{maxWidth: '150px'}}/>
+
+        <br />
+
+        <h1>{user.name}</h1>
+
+        <br />
+
         <button onClick={(e) => {
             e.preventDefault()
             setEdit(!edit)
@@ -57,5 +69,5 @@ export const Profile = ({ match: { params: { id } } }) => {
                     {updateStatus && <h1>successfully updated!</h1>}
         </form> }
 
-    </Fragment> : 'please log in'
+    </Fragment> : <h1>please log in</h1>
 }

@@ -1,45 +1,46 @@
-import React, { useState, useContext, useEffect, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import Nav from './nav/Nav'
 import firebase from './firebase'
-import { AuthContext } from './contexts/AuthContext'
 
-export const Profile = ({ match: { params: { id } } }) => {
 
-    const [user, setUser] = useState('')
-    const [name, setName] = useState(user.name && user.name)
-    const [avatar, setAvatar] = useState(user.avatar && user.avatar)
+export const Profile = ({cred}) => {
+
+    // const [user, setUser] = useState('')
+    const [name, setName] = useState('')
+    const [avatar, setAvatar] = useState('')
     const [edit, setEdit] = useState(false)
     const [updateStatus, setUpdateStatus] = useState(false)
 
- 
-    useEffect(() => {
-        firebase.getData('users').doc('WkzSjAJMVwhAE4Jr43b8QSUsLef2').get().then(doc =>  {
-            setUser(doc.data())
-        setName(doc.data().name)
-        setAvatar(doc.data().avatar)
+
+    useEffect(() => 
+        firebase.getData('users').doc(cred.uid).get().then(doc => {
+            setName(doc.data().name)
+            setAvatar(doc.data().avatar)
+            console.log(cred)
         })
-    }
-    , [])
+        , [])
+
+    // useEffect(() => console.log(cred))
 
 
-    return user ? <Fragment>
-        <Nav />
-        
-        <img src={user.avatar ? user.avatar : 'https://i.imgur.com/WlTzMuD.jpg'} alt='avatar' style={{maxWidth: '150px'}}/>
+    return <Fragment>
+        <Nav /> {firebase.getCurrentUser() ? <Fragment>
 
-        <br />
+            <img src={cred.avatar ? cred.avatar : 'https://i.imgur.com/WlTzMuD.jpg'} alt='avatar' style={{ maxWidth: '150px' }} />
 
-        <h1>{user.name}</h1>
+            <br />
 
-        <br />
+            <h1>{name}</h1>
 
-        <button onClick={(e) => {
-            e.preventDefault()
-            setEdit(!edit)
-            console.log(edit)
-        }}>edit profile details</button>
-        {edit && <form>
-            <input
+            <br />
+
+            <button onClick={(e) => {
+                e.preventDefault()
+                setEdit(!edit)
+                console.log(edit)
+            }}>edit profile details</button>
+            {edit && <form>
+                <input
                     type="text"
                     value={name}
                     name="name"
@@ -65,9 +66,10 @@ export const Profile = ({ match: { params: { id } } }) => {
                     }).catch((error) => alert(error))
                     setEdit(false)
                     console.log('submitted!')
-                    }}>Submit</button>
-                    {updateStatus && <h1>successfully updated!</h1>}
-        </form> }
+                }}>Submit</button>
+                {updateStatus && <h1>successfully updated!</h1>}
+            </form>}
 
-    </Fragment> : <h1>please log in</h1>
+        </Fragment> : <h1>please log in</h1>}
+    </Fragment>
 }

@@ -18,6 +18,7 @@ class Firebase {
         app.initializeApp(firebaseConfig)
         this.auth = app.auth()
         this.db = app.firestore()
+        // this.auth.onAuthStateChanged(cred => cred ? console.log(cred) : console.log('aw fuck'))
     }
 
     login(email, password) {
@@ -42,7 +43,15 @@ class Firebase {
 		})
     }
 
+    getAuth() {
+        return this.auth
+    }
+
     getCurrentUser() {
+        return this.auth.currentUser
+    }
+
+    getCurrentUserID() {
         return this.auth.currentUser
     }
     
@@ -55,10 +64,6 @@ class Firebase {
 
     getData(collectionName) {
         return this.db.collection(collectionName)
-    }
-
-    getUserDisplayInfo(userID) {
-        this.db.collection('users').doc(userID).get().then(doc =>  console.log(doc.data().name))
     }
 
     updateProfile(userID, name, avatar) {

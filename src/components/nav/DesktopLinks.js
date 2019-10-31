@@ -1,10 +1,8 @@
 import React, { useContext, Fragment } from 'react'
 import { NavLink } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext'
 import firebase from '../firebase'
 
 const DesktopLinks = () => {
-    const { user, setUser } = useContext(AuthContext)
 
     async function logout() {
         await firebase.logout()
@@ -16,7 +14,7 @@ const DesktopLinks = () => {
             <li><NavLink to='/bosses'>Bosses</NavLink></li>
             {firebase.getCurrentUser() ? <Fragment>
                 <li>
-                    <NavLink to={firebase.getCurrentUser() ? '/profile' : '/'}>
+                    <NavLink to='/profile'>
                     Profile
                     </NavLink>
                 </li>
@@ -24,7 +22,6 @@ const DesktopLinks = () => {
                 <a href='#'>
                     <li onClick={() => {
                         logout()
-                        setUser('')
                     }
                     }>
                         Logout

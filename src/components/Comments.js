@@ -1,23 +1,22 @@
-import React, { useEffect, useState, useContext, Fragment } from 'react'
+import React, { useEffect, useState, Fragment } from 'react'
 import firebase from './firebase'
-import { AuthContext } from './contexts/AuthContext'
 
 export const Comments = ({pageName}) => {
 
-    const { user } = useContext(AuthContext)
-
+    const[cred, setCred] = useState('')
     const[comment, setComment] = useState('')
     const[allComments, setAllComments] = useState([])
 
     useEffect(() => {
        firebase.getData(pageName).onSnapshot(snapshot => setAllComments([...snapshot.docs.map(doc => doc.data().content)]))
+       firebase.isInitialized().then(val => setCred(val))
     }, [])
     
 
     return <Fragment>
-        {firebase.getCurrentUser() && <form onSubmit={(e) => {
+        {cred && <form onSubmit={(e) => {
         e.preventDefault()
-        firebase.addComment(pageName, user.uid, comment).then(console.log('comment sent!')).then(setComment(''))
+        firebase.addComment(pageName, cred.uid, comment).then(console.log('comment sent!')).then(setComment(''))
     }}>
         <input
             type="text"

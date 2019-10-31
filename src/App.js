@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import BossesContextProvider from './components/contexts/BossesContext'
-import AuthContextProvider from './components/contexts/AuthContext'
 import firebase from './components/firebase'
 import './App.scss';
 import Home from './components/Home/Home';
@@ -9,13 +8,15 @@ import BossList from './components/Full Boss List/BossList';
 import BossPage from './components/Full Boss List/BossPage';
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
-import { Profile } from './components/Profile';
-import { Shouts } from './components/Shouts';
+import Profile from './components/Profile';
+import Shouts from './components/Shouts';
+import { userInfo } from 'os';
 
 
 const App = () => {
 
     const [cred, setCred] = useState(null)
+    const [userInfo, setUserInfo] = useState(null)
 
     useEffect(() => {
         firebase.isInitialized().then(val => setCred(val))
@@ -23,7 +24,6 @@ const App = () => {
 
     return cred && (
         <div>
-            <AuthContextProvider>
             <BossesContextProvider>
                 <BrowserRouter>
                     <Fragment>
@@ -37,7 +37,6 @@ const App = () => {
                     </Fragment>
                 </BrowserRouter>
             </BossesContextProvider>
-            </AuthContextProvider>
         </div>
     )
 

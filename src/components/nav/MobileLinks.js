@@ -1,11 +1,8 @@
 import React, { useContext, Fragment } from 'react'
 import { NavLink } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext'
 import firebase from '../firebase'
 
 const MobileLinks = ({ status }) => {
-    const { user, setUser } = useContext(AuthContext)
-
     async function logout() {
         await firebase.logout()
     }
@@ -14,8 +11,8 @@ const MobileLinks = ({ status }) => {
         <ul className={status ? 'nav-links-mobile' : 'nav-disabled'}>
             <NavLink to='/'><li>Home</li></NavLink>
             <NavLink to='/bosses'><li>Bosses</li></NavLink>
-            {user ? <>
-                <NavLink to={user ? '/profile' : '/'}>
+            {firebase.getCurrentUser() ? <>
+                <NavLink to='/profile'>
                     <li>
                         Profile
                     </li>
@@ -23,7 +20,6 @@ const MobileLinks = ({ status }) => {
                 <a href='#'>
                     <li onClick={() => {
                         logout()
-                        setUser('')
                     }
                     }>
                         Logout

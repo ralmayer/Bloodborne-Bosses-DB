@@ -10,33 +10,25 @@ import firebase from './firebase'
 // export default Profile
 
 
-const Profile = ({ cred }) => {
+const Profile = ({ cred, userInfo }) => {
 
+    const [displayName, setDisplayName] = useState(userInfo.name)
+    const [displayAvatar, setDisplayAvatar] = useState(userInfo.avatar)
     const [name, setName] = useState('')
     const [avatar, setAvatar] = useState('')
     const [edit, setEdit] = useState(false)
     const [updateStatus, setUpdateStatus] = useState(false)
-
-
-    useEffect(() => 
-        firebase.getData('users').doc(cred.uid).get().then(doc => {
-            // setName(doc.data().name)
-            // setAvatar(doc.data().avatar)
-            console.log(doc)
-        })
-        , [])
-
 
     return <Fragment>
         <Nav />
         {cred ?
             <Fragment>
 
-                <img src={avatar ? 'avatar' : 'https://i.imgur.com/WlTzMuD.jpg'} alt='avatar' style={{ maxWidth: '150px' }} />
+                <img src={displayAvatar ? userInfo.avatar : 'https://i.imgur.com/WlTzMuD.jpg'} alt='avatar' style={{ maxWidth: '150px' }} />
 
                 <br />
 
-                <h1>{name}</h1>
+                <h1>{displayName}</h1>
 
                 <br />
 
@@ -47,7 +39,9 @@ const Profile = ({ cred }) => {
                 }}>edit profile details</button>
                 {edit && <form onSubmit={(e) => {
                     e.preventDefault()
-                    firebase.updateProfile(name, avatar).then(() => {
+                    firebase.updateProfile(cred.uid, name ? name : displayName, avatar ? avatar : displayAvatar).then(() => {
+                        setDisplayName(name)
+                        // setDisplayAvatar(avatar)
                         setUpdateStatus(true)
                         setEdit(false)
                     }).catch((error) => alert(error))
@@ -60,7 +54,6 @@ const Profile = ({ cred }) => {
                         name="name"
                         placeholder="type your display name"
                         onChange={e => { setName(e.target.value) }}
-                        required
                     />
                     <br />
                     <input
@@ -69,7 +62,6 @@ const Profile = ({ cred }) => {
                         name="avatar"
                         placeholder="paste the image URL"
                         onChange={e => { setAvatar(e.target.value) }}
-                        required
                     />
                     <br />
                     <button>Submit</button>

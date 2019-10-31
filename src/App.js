@@ -18,17 +18,19 @@ const App = () => {
     const [cred, setCred] = useState(null)
     const [userInfo, setUserInfo] = useState(null)
 
-    useEffect(() => {
-        firebase.isInitialized().then(val => setCred(val))
-    })
+    useEffect(async () => {
+        await firebase.isInitialized().then(val => {
+            setCred(val)
+            firebase.getData('users').doc(val.uid).get().then(doc => setUserInfo(doc.data()))})
+    }, [])
 
-    return cred && (
+    return cred && userInfo && (
         <div>
             <BossesContextProvider>
                 <BrowserRouter>
                     <Fragment>
                         <Route path="/" component={Home} exact />
-                        <Route path="/profile" component={() => <Profile cred={cred}/>} />
+                        <Route path="/profile" component={() => <Profile cred={cred} userInfo={userInfo}/>} />
                         <Route path="/bosses" component={BossList} exact/>
                         <Route path="/bosses/:id" component={BossPage} />
                         <Route path="/register" component={Register}/>

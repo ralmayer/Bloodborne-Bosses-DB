@@ -43,15 +43,7 @@ class Firebase {
 		})
     }
 
-    getAuth() {
-        return this.auth
-    }
-
     getCurrentUser() {
-        return this.auth.currentUser
-    }
-
-    getCurrentUserID() {
         return this.auth.currentUser
     }
     

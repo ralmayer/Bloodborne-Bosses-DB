@@ -10,7 +10,6 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Profile from './components/Profile';
 import Shouts from './components/Shouts';
-import { userInfo } from 'os';
 
 
 const App = () => {
@@ -22,7 +21,9 @@ const App = () => {
         await firebase.isInitialized().then(val => {
             setCred(val)
             firebase.getData('users').doc(val.uid).get().then(doc => setUserInfo(doc.data()))})
-    }, [])
+        
+    }
+    , [])
 
     return cred && userInfo && (
         <div>

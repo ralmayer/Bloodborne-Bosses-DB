@@ -63,11 +63,13 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        // padding: 40px;
+        background: url("https://www.gravitybackdrops.com/wp-content/uploads/2018/10/3222-dark-grey-distressed-strong-text-XS.jpg") center center no-repeat;
         p {
             font-family: 'EB Garamond', serif;
             font-size: 60px;
-            color: rgb(255, 255, 255);
-            margin-bottom: 40px;  
+            color: rgb(255, 255, 255); 
+            padding-top: 40px;
         }
         div {
             width: 80%;
@@ -75,6 +77,11 @@
             color: rgb(211, 211, 211);
             font-family: 'Carrois Gothic SC', sans-serif;
             line-height: 25px;
+            background: rgba(0,0,0,0.5);
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-bottom: 30px;
+           
         }
     }
 }

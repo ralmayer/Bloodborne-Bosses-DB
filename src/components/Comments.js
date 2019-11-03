@@ -11,19 +11,32 @@ export const Comments = ({ pageName }) => {
     useEffect(() => {
         //    firebase.getData(pageName).onSnapshot(snapshot => setAllComments([...snapshot.docs.map(doc => doc.data())]))
         
-        firebase.getData(pageName).onSnapshot(snapshot => Promise.all([...snapshot.docs.map(async (doc) => {
+        // firebase.getData(pageName).onSnapshot(snapshot => Promise.all(snapshot.docs.map(async (doc) => {
 
-            let poster = await firebase.getData('users').doc(doc.data().posterID).get()
-            let name =poster.data().name
-            let avatar = poster.data().avatar
-            let comment = doc.data().content
+        //     let poster = await firebase.getData('users').doc(doc.data().posterID).get()
+        //     let name =poster.data().name
+        //     let avatar = poster.data().avatar
+        //     let comment = doc.data().content
 
-            return ({
-                name: name,
-                avatar: avatar,
-                comment: comment
-            })
-        })]).then(res => setAllComments(res.map(item => item))))
+        //     return ({
+        //         name: name,
+        //         avatar: avatar,
+        //         comment: comment
+        //     })
+        // })).then(res => setAllComments(res.map(item => item))))
+
+        firebase.getData(pageName).onSnapshot(snapshot => {
+            const commentPromises = snapshot.docs.map(async (doc) => {
+                const {posterID, content: comment} = doc.data()
+                const poster = await firebase.getData('users').doc(posterID).get()
+                const {name, avatar} = poster.data()
+        
+                return {name, avatar, comment}
+
+            })       
+            Promise.all(commentPromises)
+              .then(setAllComments)
+          })
  
         firebase.isInitialized().then(val => setCred(val))
         
@@ -46,12 +59,7 @@ export const Comments = ({ pageName }) => {
             <button >Post</button>
         </form>}
         <ul>
-            {/* {console.log(allComments[0])} */}
-            {/* {Promise.all(allComments).then(res => res.map(item => <li>{item.comment}</li>))} */}
             {allComments.map(item => <li>{item.comment}</li>)}
-
-
-
         </ul>
     </Fragment>
 }

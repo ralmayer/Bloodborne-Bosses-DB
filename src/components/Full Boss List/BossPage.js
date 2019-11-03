@@ -45,11 +45,6 @@ const BossPage = ({ match: { params: { id } } }) => {
                             <div><p>Lore</p></div>
                             <div className='break'></div>
                             <div>{boss.lore}</div>
-                            <div style={{marginTop: '50px'}}>
-                                <Link to='/bosses'>
-                                    <img src='https://media1.giphy.com/media/pLCy6fPZG73wI/source.gif' alt='mark' style={{ width: '200px' }} />
-                                </Link>
-                            </div>
                         </div>
                     </Fragment>
                     : null}

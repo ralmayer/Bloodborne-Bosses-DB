@@ -50,7 +50,8 @@ class Firebase {
     addComment(collectionName, posterID, content) {
         return this.db.collection(collectionName).add({
             posterID: posterID,
-            content: content
+            content: content,
+            timestamp: new Date().toISOString()       
         })
     }
 

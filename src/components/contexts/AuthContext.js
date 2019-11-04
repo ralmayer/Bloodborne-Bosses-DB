@@ -1,26 +1,22 @@
-// import React, { createContext, useState, useEffect } from 'react'
-// import firebase from '../firebase'
-// import App from '../../App'
+import React, { createContext, useState, useEffect } from 'react'
+import firebase from '../firebase'
+import App from '../../App'
 
-// export const AuthContext = createContext()
+export const AuthContext = createContext()
 
-// const AuthContextProvider = (props) => {
+const AuthContextProvider = (props) => {
 
-//     const [cred, setCred] = useState('')
-//     const [email, setEmail] = useState('')
-//     const [password, setPassword] = useState('')
+    const [authStatus, setAuthStatus] = useState(false)
 
-//     useEffect(() => {
-//         firebase.isInitialized().then(val => setCred(val))
-//     })
- 
+    useEffect(() => {
+        firebase.isInitialized().then(val => val && setAuthStatus(true))
+    })
 
-//     return (
-//         <AuthContext.Provider value={{ cred, setCred, email, setEmail, password, setPassword}}>
-//             {/* <App /> */}
-//             {props.children}
-//         </AuthContext.Provider>
-//     )
-// }
+    return (
+        <AuthContext.Provider value={{ authStatus, setAuthStatus }}>
+            {props.children}
+        </AuthContext.Provider>
+    )
+}
 
-// export default AuthContextProvider;
+export default AuthContextProvider;

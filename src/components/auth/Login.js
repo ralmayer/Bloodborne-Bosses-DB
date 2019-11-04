@@ -1,15 +1,20 @@
-import React, { useContext, Fragment } from 'react'
+import React, { useState, useContext, Fragment } from 'react'
 import firebase from '../firebase'
-import { AuthContext } from '../contexts/AuthContext'
 import Nav from '../nav/Nav'
+import { AuthContext } from '../contexts/AuthContext'
 
 const Login = () => {
 
-    const { user, setUser, email, setEmail, password, setPassword } = useContext(AuthContext)
+    const { authStatus, setAuthStatus } = useContext(AuthContext)
+
+    const [ user, setUser ] = useState('')
+    const [email, setEmail ] = useState('')
+    const [password, setPassword] = useState('')
 
     async function login() {
         try {
-            await firebase.login(email, password).then(res => setUser(res.user))
+            await firebase.login(email, password)
+            setAuthStatus(true)
 
         } catch (error) { alert(error.message) }
     }

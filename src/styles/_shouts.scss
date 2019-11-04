@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kosugi&display=swap');
+
+#shouts {
+    width: 100%;
+    height: auto;
+    background: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: white;
+    background: url('https://cdna.artstation.com/p/assets/images/images/007/505/872/large/simone-magagna-bloodborne-10.jpg?1506597332') center center no-repeat;
+    #shoutsBanner {
+        padding-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        .break {
+            width: 100%;
+        }
+        img {
+            max-width: 80%;
+            margin: auto;
+            padding-bottom: 10px;
+        }
+       div {
+        background: rgba(0, 0, 0, 0.6);
+        padding-bottom: 30px;
+        h1 {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 25px;
+            color: rgb(223, 199, 149); 
+            padding-top: 10px;
+        }
+        p {
+            font-family: 'Kosugi', sans-serif;
+            color: white; 
+            padding: 20px;
+            padding-top: 30px;
+            font-size: 17px;
+        }
+       }
+    }
+}
+
+@media screen and (min-width: 780px) {
+    #shouts {
+        padding-top: 0;
+        margin: 0;
+        width: 100%;
+        #shoutsBanner {
+            width: 100%;
+            align-items: center;
+            .break {
+                display: none;
+            }
+            img {
+                max-width: 50%;
+                min-width: 50%;
+                margin: 0;
+            }
+            div {
+                max-width: 50%;
+                min-width: 50%;
+                h1 {
+                    font-size: 60px;
+                }
+                p {
+                    font-size: 50px;
+                }
+            }
+        }
+        .break {
+            width: 100%;
+        }
+    }
+}

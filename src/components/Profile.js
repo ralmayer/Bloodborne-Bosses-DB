@@ -2,22 +2,28 @@ import React, { useState, useEffect, Fragment } from 'react'
 import Nav from './nav/Nav'
 import firebase from './firebase'
 
-// const Profile = () => <Fragment>
-//     <Nav />
-//     <h1>profile component</h1>
-// </Fragment>
+const Profile = () => {
 
-// export default Profile
-
-
-const Profile = ({ cred, userInfo }) => {
-
-    const [displayName, setDisplayName] = useState(userInfo.name)
-    const [displayAvatar, setDisplayAvatar] = useState(userInfo.avatar)
+    const [displayName, setDisplayName] = useState('')
+    const [displayAvatar, setDisplayAvatar] = useState('')
     const [name, setName] = useState('')
     const [avatar, setAvatar] = useState('')
     const [edit, setEdit] = useState(false)
     const [updateStatus, setUpdateStatus] = useState(false)
+    const [cred, setCred] = useState(null)
+    const [userInfo, setUserInfo] = useState(null)
+
+    useEffect(() => {
+       firebase.getCurrentUser() && firebase.isInitialized().then(val => {
+            setCred(val)
+            firebase.getData('users').doc(val.uid).get().then(doc => {
+                const info = doc.data()
+                setUserInfo(info)
+                setDisplayAvatar(info.avatar)
+                setDisplayName(info.name)
+            })})     
+    }
+    , [])
 
     return <Fragment>
         <Nav />

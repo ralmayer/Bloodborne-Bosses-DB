@@ -1,11 +1,15 @@
 import React, { useContext, Fragment } from 'react'
+import { AuthContext } from '../contexts/AuthContext'
 import { NavLink } from 'react-router-dom';
 import firebase from '../firebase'
 
 const DesktopLinks = () => {
 
+    const { authStatus, setAuthStatus } = useContext(AuthContext)
+
     async function logout() {
         await firebase.logout()
+        setAuthStatus(false)
     }
 
     return (

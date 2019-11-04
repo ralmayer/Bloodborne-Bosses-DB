@@ -5,11 +5,15 @@ import Nav from '../nav/Nav'
 
 const Register = (props) => {
 
-    const {email, setEmail, password, setPassword } = useContext(AuthContext)
+    const {authStatus, setAuthStatus} = useContext(AuthContext)
     const[name, setName] = useState('')
+    const[email, setEmail] = useState('')
+    const[password, setPassword] = useState('')
 
     function register() {
         firebase.register(name, email, password)
+        setAuthStatus(true)
+        
     }
 
     function logout() {

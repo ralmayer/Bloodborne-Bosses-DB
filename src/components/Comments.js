@@ -54,6 +54,7 @@ export const Comments = ({ pageName }) => {
             e.preventDefault()
             comment && firebase.addComment(pageName, cred.uid, comment).then(console.log('comment sent!')).then(setComment(''))
         }}>
+            <div>
             <ThemeProvider theme={theme}>
                 <TextField
                     id="standard-textarea"
@@ -71,6 +72,7 @@ export const Comments = ({ pageName }) => {
 
             <br />
             <button >Post</button>
+            </div>
         </form>
     <div className='break'></div>
     </>}

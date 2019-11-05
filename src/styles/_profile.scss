@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Carrois+Gothic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+
+#profile {
+    width: 100%;
+    height: 80vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #profileUI {
+        width: 90%;
+        height: auto;
+        background: white;
+        margin-top: -150px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .break {
+            width: 100%;
+            height: 5px;
+        }
+        h1 {
+            font-family: 'EB Garamond', serif;
+            font-size: 30px;
+            margin-bottom: 20px;
+            // color: rgb(255, 255, 255); 
+            // padding-top: 40px;
+        }
+        .avatar {
+            margin-bottom: 20px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px rgb(223, 199, 149) solid;
+            overflow: hidden;
+            img {
+                max-width: 150px;           
+            }
+        }
+        button {
+            background-color: rgb(223, 199, 149);
+            min-height: 60px;
+            min-width: 120px;
+            font-family: 'Carrois Gothic SC', sans-serif;
+        }
+        form {
+            margin: 10px;
+        }
+    }
+}

@@ -2,13 +2,14 @@ import React, { useState, useContext, Fragment } from 'react'
 import firebase from '../firebase'
 import Nav from '../nav/Nav'
 import { AuthContext } from '../contexts/AuthContext'
+import Footer from '../Home/Footer'
 
 const Login = () => {
 
     const { authStatus, setAuthStatus } = useContext(AuthContext)
 
-    const [ user, setUser ] = useState('')
-    const [email, setEmail ] = useState('')
+    const [user, setUser] = useState(false)
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     async function login() {
@@ -26,39 +27,39 @@ const Login = () => {
     return (
         <Fragment>
             <Nav />
-            <form>
-                <input
-                    type="email"
-                    value={email}
-                    name="email"
-                    placeholder="email"
-                    onChange={e => { setEmail(e.target.value) }}
-                    required
-                />
-                <br />
-                <input
-                    type="password"
-                    value={password}
-                    name="password"
-                    placeholder="password"
-                    onChange={e => setPassword(e.target.value)}
-                    required
-                />
-                <br />
-                <button onClick={e => {
-                    e.preventDefault()
-                    login()
-                    setEmail('')
-                    setPassword('')
-                }}>Submit</button>
-                <br />
-                <button onClick={e => {
-                    e.preventDefault()
-                    logout().then(setUser(''))
-                }}>Sign Out</button>
-            </form>
-            <br />
-            <div>{user ? `Welcome, ${user.displayName}` : 'not logged in'}</div>
+            <div className='auth'>
+                <div className='authUI'>
+                    <form onSubmit={e => {
+                            e.preventDefault()
+                            login().then(setUser(true))
+                            setEmail('')
+                            setPassword('')
+                        }}>
+                        <input
+                            type="email"
+                            value={email}
+                            name="email"
+                            placeholder="email"
+                            onChange={e => { setEmail(e.target.value) }}
+                            required
+                        />
+                        <br />
+                        <input
+                            type="password"
+                            value={password}
+                            name="password"
+                            placeholder="password"
+                            onChange={e => setPassword(e.target.value)}
+                            required
+                        />
+                        <br />
+                        <button>Submit</button>
+                    </form>
+                    <br />
+                    {user && <h1>{'Successfully logged in'}</h1>}
+                </div>
+            </div>
+            <Footer />
         </Fragment>
     )
 }

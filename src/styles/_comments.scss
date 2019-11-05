@@ -1,25 +1,42 @@
-.comment-submit-form {
-
-}
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Carrois+Gothic+SC&display=swap');
 
 .comments {
+    background: black;
     width: 100%;
-    // height: auto;
+    height: auto;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    form {
+        display: flex;
+        justify-content: center;
+        background: white;
+        width: 100%;
+        padding-bottom: 20px;
+        padding-left: 10px;
+        div {
+            width: 70%;
+        }
+        button {
+            background-color: rgb(223, 199, 149);
+            min-height: 60px;
+            min-width: 120px;
+            font-family: 'Carrois Gothic SC', sans-serif;
+        }
+    }
     .break {
         width: 100%;
     }
     .comment {
-        background: red;
         min-height: 150px;
-        // height: auto;
+        height: auto;
         width: 100%;
+        min-width: 90vw;
         display: flex;
-        // flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: flex-start;
-        margin-top: 10px;
+        margin-top: 30px;
         padding-top: 10px;
         overflow: hidden;
 
@@ -28,37 +45,42 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: flex-start;
-            max-width: 28%;
-            min-width: 28%;
+            max-width: 30%;
+            min-width: 10%;
             height: 100%;
-            background: yellow;
+            // background: yellow;
             .display-name {
-    
+                color: rgb(223, 199, 149);
+                font-family: 'Carrois Gothic SC', sans-serif;
+                font-size: 20px;
             }
             .break {
                 width: 100%;
-                background: white;
+                // background: white;
                 height: 10px;
             }
             .avatar {
                 margin-top: 10px;
-                width: 60px;
-                height: 60px;
+                width: 80px;
+                height: 80px;
                 border-radius: 50%;
+                border: 2px white solid;
                 overflow: hidden;
                 img {
-                    max-width: 60px;           
+                    max-width: 80px;           
                 }
             }
         }
         .comment-text {
-            max-width: 70%;
+            width: 100%;
             // padding: 10px;
             margin: 10px;
-            background: green;
+            background: rgba(255, 255, 255);
             line-height: 25px;
             p {
-                word-break: break-all
+                word-break: break-all;
+                margin: 10px;
+                font-family: 'EB Garamond', serif;
             }
         }
     }

@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import Nav from '../nav/Nav'
 import Footer from '../Home/Footer'
-import { Link } from 'react-router-dom'
+import { Comments } from '../Comments'
 
 const BossPage = ({ match: { params: { id } } }) => {
 
@@ -22,7 +22,7 @@ const BossPage = ({ match: { params: { id } } }) => {
         <Fragment>
             <div id='bossPage'>
                 <Nav />
-                {boss ?
+                {boss &&
                     <Fragment>
                         <div id="bossSection" style={{ backgroundImage: `url(${boss.avatar})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
                             <ul>
@@ -46,8 +46,8 @@ const BossPage = ({ match: { params: { id } } }) => {
                             <div className='break'></div>
                             <div>{boss.lore}</div>
                         </div>
-                    </Fragment>
-                    : null}
+                        {boss.name && <Comments pageName={boss.name}/>}
+                    </Fragment>}
             </div>
             <Footer />
         </Fragment>

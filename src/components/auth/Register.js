@@ -4,9 +4,11 @@ import { AuthContext } from '../contexts/AuthContext'
 import Nav from '../nav/Nav'
 import Footer from '../Home/Footer'
 
-const Register = (props) => {
+const Register = () => {
 
     const { authStatus, setAuthStatus } = useContext(AuthContext)
+
+    const [user, setUser] = useState(false)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -14,6 +16,7 @@ const Register = (props) => {
     function register() {
         firebase.register(name, email, password)
         setAuthStatus(true)
+        setUser(true)
     }
 
     function logout() {
@@ -58,6 +61,8 @@ const Register = (props) => {
                         <br />
                         <button>Submit</button>
                     </form>
+                    <div className='break'></div>
+                    {user && <h1>{'Successfully signed up!'}</h1>}
                 </div>
             </div>
             <Footer />

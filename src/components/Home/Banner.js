@@ -9,7 +9,7 @@ const Banner = () =>
         <div id="bannerText">
             <p>The <br /> Hunter's <br /> Guide</p>
             <div id='bannerSubText'></div>
-            <div id='scrollImg'><img src='https://thumbs.gfycat.com/ApprehensiveHorribleHorsemouse-size_restricted.gif' alt="arrow"/></div>
+            <a onClick={() => window.scrollTo(0, 800)} id='scrollImg'><img src='https://thumbs.gfycat.com/ApprehensiveHorribleHorsemouse-size_restricted.gif' alt="arrow"/></a>
         </div>
         <div id='bannerTransition'></div>
     </div>

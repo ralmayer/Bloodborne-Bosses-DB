@@ -36,3 +36,18 @@
         }
     }
 }
+
+#pleaseLogIn {
+    width: 100%;
+    height: 80vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        font-family: 'EB Garamond', serif;
+        font-size: 100px;
+        margin-bottom: 20px;
+        color: white;
+    }
+}

@@ -86,7 +86,9 @@ const Profile = () => {
             </div>
 
             :
-            <h1>please log in</h1>}
+            <div id='pleaseLogIn'>
+                <h1>please <br /> log <br /> in</h1>
+            </div>}
         <Footer />
     </Fragment>
 }

@@ -11,25 +11,17 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Profile from './components/Profile';
 import Shouts from './components/Shouts';
+import ScrollToTop from './components/ScrollToTop';
 
 
 const App = () => {
-
-    // const [cred, setCred] = useState(null)
-    // const [userInfo, setUserInfo] = useState(null)
-
-    // useEffect(() => {
-    //    firebase.getCurrentUser() && firebase.isInitialized().then(val => {
-    //         setCred(val)
-    //         firebase.getData('users').doc(val.uid).get().then(doc => setUserInfo(doc.data()))})     
-    // }
-    // , [])
 
     return (
         <div>
             <BossesContextProvider>
                 <AuthContextProvider>
                     <BrowserRouter>
+                        <ScrollToTop>
                         <Fragment>
                             <Route path="/" component={Home} exact />
                             <Route path="/profile" component={() => <Profile />} />
@@ -39,6 +31,7 @@ const App = () => {
                             <Route path="/login" component={Login} />
                             <Route path="/credits" component={Shouts} />
                         </Fragment>
+                        </ScrollToTop>
                     </BrowserRouter>
                 </AuthContextProvider>
             </BossesContextProvider>

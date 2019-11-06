@@ -4,6 +4,7 @@ import Banner from './Banner'
 import BossesPreview from '../Bosses Preview/BossesPreview'
 import Footer from './Footer';
 import CTA from './CTA'
+import { Loader } from '../Loader';
 
 const Home = () => {
     const { bossesList } = useContext(BossesContext)
@@ -17,7 +18,7 @@ const Home = () => {
                     <CTA />
                     <Footer />
                 </Fragment>
-                : <h1>Loading...</h1>}
+                : <Loader />}
         </Fragment>
     )
 }

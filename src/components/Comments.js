@@ -32,11 +32,20 @@ export const Comments = ({ pageName }) => {
 
     useEffect(() => {
 
+        // grab the database containing poster ID 
+        // & text of each single comment by it's name and then map over it
+
         firebase.getData(pageName).orderBy('timestamp', 'desc').onSnapshot(snapshot => {
+
+            // using the poster ID, 
+            // access the 'users' (pageName) DB that contains the avatar & name fields
+
             const commentPromises = snapshot.docs.map(async (doc) => {
                 const { posterID, content: comment } = doc.data()
                 const poster = await firebase.getData('users').doc(posterID).get()
                 const { name, avatar } = poster.data()
+
+                // returning an object of all the data we want to display for each comment
 
                 return { name, avatar, comment }
 
@@ -45,9 +54,13 @@ export const Comments = ({ pageName }) => {
                 .then(setAllComments)
         })
 
+        // if user exists, set state to their credentials
+
         firebase.isInitialized().then(val => setCred(val))
 
     }, [])
+
+    // submit the comment to the text&DB collection with text, poster ID and text 
 
     return allComments && <div className='comments'>
         {cred && <><form onSubmit={(e) => {
@@ -55,28 +68,30 @@ export const Comments = ({ pageName }) => {
             comment && firebase.addComment(pageName, cred.uid, comment).then(console.log('comment sent!')).then(setComment(''))
         }}>
             <div>
-            <ThemeProvider theme={theme}>
-                <TextField
-                    id="standard-textarea"
-                    label="作成者を称賛する"
-                    placeholder="250シンボル以下"
-                    multiline
-                    margin="normal"
-                    value={comment}
-                    onChange={e => { setComment(e.target.value) }}
-                    rowsMax='4'
-                    style={{ width: '300px' }}
-                    color="secondary"
-                />
-            </ThemeProvider>
+                <ThemeProvider theme={theme}>
+                    <TextField
+                        id="standard-textarea"
+                        label="作成者を称賛する"
+                        placeholder="250シンボル以下"
+                        multiline
+                        margin="normal"
+                        value={comment}
+                        onChange={e => { setComment(e.target.value) }}
+                        rowsMax='4'
+                        style={{ width: '300px' }}
+                        color="secondary"
+                    />
+                </ThemeProvider>
 
-            <br />
-            <button >Post</button>
+                <br />
+                <button >Post</button>
             </div>
         </form>
-    <div className='break'></div>
-    </>}
-        <ul>
+            <div className='break'></div>
+        </>}
+        
+        {/* return the comments  */}
+
             {allComments.map(item => <div className='comment'>
                 <div className='user-info'>
                     <div className='display-name'>{item.name}</div>
@@ -85,6 +100,5 @@ export const Comments = ({ pageName }) => {
                 </div>
                 <div className='comment-text'><p>{item.comment}</p></div>
             </div>)}
-        </ul>
     </div>
 }

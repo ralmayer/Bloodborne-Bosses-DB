@@ -1,23 +1,31 @@
 import React, { useState, useContext, Fragment } from 'react'
 import firebase from '../firebase'
 import { AuthContext } from '../contexts/AuthContext'
+import { withRouter } from 'react-router-dom'
 import Nav from '../nav/Nav'
 import Footer from '../Home/Footer'
 
 const Register = (props) => {
 
     const { authStatus, setAuthStatus } = useContext(AuthContext)
+
+    const [user, setUser] = useState(false)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    function register() {
-        firebase.register(name, email, password)
-        setAuthStatus(true)
-    }
-
-    function logout() {
-        firebase.logout()
+    async function register() {
+        try {
+            await firebase.register(name, email, password)
+            setAuthStatus(true)
+            setUser(true)
+            props.history.replace('/')
+        } catch(err) {
+            alert(err)
+            setName('')
+            setEmail('')
+            setPassword('')
+        }
     }
 
     return (
@@ -38,6 +46,7 @@ const Register = (props) => {
                             name="display name"
                             placeholder="display name"
                             onChange={e => { setName(e.target.value) }}
+                            required
                         />
                         <br />
                         <input
@@ -46,18 +55,22 @@ const Register = (props) => {
                             name="email"
                             placeholder="email"
                             onChange={e => setEmail(e.target.value)}
+                            required
                         />
                         <br />
                         <input
-                            type="text"
+                            type="password"
                             value={password}
                             name="password"
                             placeholder="password"
                             onChange={e => setPassword(e.target.value)}
+                            required
                         />
                         <br />
                         <button>Submit</button>
                     </form>
+                    <div className='break'></div>
+                    {user && <h1>{'Successfully signed up!'}</h1>}
                 </div>
             </div>
             <Footer />
@@ -65,4 +78,4 @@ const Register = (props) => {
     )
 }
 
-export default Register
+export default withRouter(Register)

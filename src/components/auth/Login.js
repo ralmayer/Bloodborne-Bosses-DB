@@ -2,9 +2,10 @@ import React, { useState, useContext, Fragment } from 'react'
 import firebase from '../firebase'
 import Nav from '../nav/Nav'
 import { AuthContext } from '../contexts/AuthContext'
+import { withRouter } from 'react-router-dom'
 import Footer from '../Home/Footer'
 
-const Login = () => {
+const Login = (props) => {
 
     const { authStatus, setAuthStatus } = useContext(AuthContext)
 
@@ -16,14 +17,12 @@ const Login = () => {
         try {
             await firebase.login(email, password)
             setAuthStatus(true)
+            setUser(true)
+            props.history.replace('/')
 
         } catch (error) { alert(error.message) }
     }
-
-    async function logout() {
-        await firebase.logout()
-    }
-
+    
     return (
         <Fragment>
             <Nav />
@@ -31,7 +30,7 @@ const Login = () => {
                 <div className='authUI'>
                     <form onSubmit={e => {
                             e.preventDefault()
-                            login().then(setUser(true))
+                            login()
                             setEmail('')
                             setPassword('')
                         }}>
@@ -55,7 +54,7 @@ const Login = () => {
                         <br />
                         <button>Submit</button>
                     </form>
-                    <br />
+                    <div className='break'></div>
                     {user && <h1>{'Successfully logged in'}</h1>}
                 </div>
             </div>
@@ -64,4 +63,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default withRouter(Login)

@@ -16,7 +16,7 @@ const MobileLinks = ({ status }) => {
         <ul className={status ? 'nav-links-mobile' : 'nav-disabled'}>
             <NavLink to='/'><li>Home</li></NavLink>
             <NavLink to='/bosses'><li>Bosses</li></NavLink>
-            {firebase.getCurrentUser() ? <>
+            {authStatus ? <>
                 <NavLink to='/profile'>
                     <li>
                         Profile
